@@ -1,0 +1,187 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+    title Customer repository ~ inSided
+
+    link(rel='stylesheet', type='text/css', href='/build/build.css')
+
+  body
+
+    article(data-bespoke-backdrop='poligons')
+
+      section
+        h1 Let's dry Transpilers
+        h3.italic Let's ship them
+
+      section
+        h3.bullet Disclaimer
+        span.bullet This presentation may contain grammar errors.
+        br
+        span.bullet  (Grammar-Nazi are invited ign§ore them)
+
+      section
+        h3.bullet So why?
+
+      section(style="background-image: url('http://i.giphy.com/bkklBjAmlYjv2.gif'); background-size: cover;")
+        h4.bullet When we start a new project
+        h4.bullet We always t<strike>m</strike>ake the same <strike>mistake</strike> decisions
+
+      section
+        h3.bullet Do I really like JS?
+        span.bullet  Mhhh...
+        ul
+          li TypeScript, Maybe?
+          li CoffeeScript, Maybe?
+          li No dude I rule with $.fn
+          li listen I'm hardcore Vanilla!
+          li with Angular you don't need jQuery
+          li but... Actually the latest ES6 / ES7 implementation is not that bad...
+
+      section
+        h3.bullet So what they are?
+        p.bullet JS Trends and Evolutions
+        pre.bullet
+          code.language-js new JS('jQuery')->to('Backbone')->to('Angular')-or('Ember')->to('React')->to(?);
+        p.bullet Package Managers
+        pre.bullet
+          code.language-js new PackageManager('npm')->to('bower')->('jspm');
+        pre.bullet
+          code.language-js new ModuleBundler('requirejs')->to('browserify')->to('webpack')->to(?);
+
+      section
+        p.bullet Task Managers
+        pre.bullet
+          code.language-js new TaskManager('grunt')->to('gulp')->to('brunch')->to('broccoli')->to(?);
+        p.bullet Transpilers and Module bundlers
+        pre.bullet
+          code.language-js new Transpiler('tpl!underscore')->to('react-jsx')->to('babel-preset-es2015')->to(?);
+        p.bullet Does the browser miss something?
+          span.bullet  Let's Polify!!!
+
+      section
+        h3.bullet The problem?
+          br
+          span.bullet We are consuming thousand of human hours in configuring:
+          br
+          span.bullet Gulpfile.js,
+          span.bullet  Gruntfile.js,
+          span.bullet  Webpack.config.js, etc...
+        ul
+          li are stored in our project
+          li aren't reusable
+          li aren't flexible
+          li aren't related to business logic
+
+      section
+        h3.bullet What the community is worried about?
+        ul
+          li Frameworks vs Libraries
+          li Generators vs Boilerplates
+          li Configurations for Building
+          li Testing
+            span.bullet  Unit,
+            span.bullet  E2E,
+            span.bullet  A/B,
+            span.bullet  BDD
+          li Opinionated Folder structures
+          li ...Artificial Intelligence is gonna take the world? ...of course..
+
+      section
+        h3.bullet What consolidations we've around?
+        img.bullet(src="/images/1.svg" style="width: 200px")
+
+      section
+        h3.bullet
+          a(href="http://www.todomvc.org") "TodoMvc - Collection of Boilerplates" and
+          br
+          a(href="http://www.yeoman.org") "Yeoman"
+          span  ~ Addy Osmani
+        h3.bullet
+          a(href="https://github.com/geniuscarrier/webpack-boilerplate") "Este" ~ Daniel Steigerwald
+        h3.bullet
+          a(href="https://github.com/geniuscarrier/webpack-boilerplate") "Webpack Boilerplate" ~ Yang Zhao
+        h3.bullet
+          a(href="http://www.davecooper.org/angular-project-structure") "AngularJS Project Structure - Surely this is a solved problem." ~ Dadve.
+        h3.bullet And hundred more articles and boilerplate codes...
+
+      section
+        h3.bullet Who I'm?
+          span.bullet  Mauro Mandracchia
+        h3.bullet Senior Front-End Developer
+        h3.bullet Working in Core Solutions for Implementations Projects.
+        img.bullet(src='/images/insided_logo_800px.png' width='200')
+
+      section(class='logo-slide')
+        img.bullet(src='/images/insided_logo_800px.png' width='200' style="margin-bottom:40px")
+        img.bullet(src='http://insided.com/img/insided-social-business-platform-screenshot@2x.png' style="margin-bottom:40px" width='400')
+        img.bullet(src='/images/insided-clients.png' width='80%')
+        h3.bullet ( We're hiring )
+
+      section
+        h3.bullet But how we can share building rules?
+        ul
+          li Create a module filled with your favorite: task manager / compilers / transpilers / module loaders
+          li Use reference folders
+            pre.bullet
+              code.language-js __dirname;
+            span.bullet vs
+            pre.bullet
+              code.language-js process.env.PWD || process.cwd();
+          li Use bin option on package.json
+            pre.bullet
+              code.language-json { "bin" : { "my-command" : "myScript.js" } }
+          li
+            b myScript.js
+            span.bullet  Spawn my favorite tool
+
+      section
+        h3.bullet What are the advantages?
+        ul
+          li Consolidate folder structures
+          li Remove duplications
+          li Ready to go at the speed of npm install
+
+      section
+        h3.bullet Why ship them in containers?
+        ul
+          li FROM you can extend the container with your code
+          li ENTRYPOINT works good with our npm bin
+          li ADD stash our code and dependency of our compiler
+          li MOUNT mount your code and destination folder and you're good to go
+          li Easy (and safe) to move from dev to prod
+
+      section
+        h3.bullet Good to know
+        ul
+          li Docker cache is smart.
+          div.bullet Sometimes too much. Add first package.json run npm install. Then add your code.
+          li Be careful with container sizes.
+          div.bullet Containers are made out from full distro, try to look for minimal containers like
+            b  alpine.
+          li What about watchers?
+          div.bullet
+            a(href="https://muffinresearch.co.uk/tips-for-building-a-dev-env-with-docker/") I would avoid
+            span  run them in a container, but some did
+            a(href="https://github.com/codekitchen/dinghy") (dinghy)
+
+      section
+        h1 Some code
+        ul
+          li
+            a(href="https://github.com/Ideabile/slides") https://github.com/Ideabile/slides
+            span ( this slides :-) )
+          li
+            a(href="https://github.com/Ideabile/mf-ng-bespoke") https://github.com/Ideabile/mf-ng-bespoke
+            span ( this slides :-) )
+
+      section
+        h1.bullet Questions?
+
+      section
+        h3.bullet But last not least, I've a question too.
+        h2.bullet Do miss a framework / library / tool?
+        h3.bullet for manage our compilers rules
+
+    script(src='/build/build.js')
